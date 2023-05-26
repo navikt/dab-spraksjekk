@@ -1,4 +1,4 @@
-# dab-frontend
+# dab-spraksjekk
 
 React bibliotek for språksjekk
 
