@@ -1,22 +1,36 @@
 {
   "name": "dab-frontend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "license": "MIT",
+  "main": "./dist/spraksjekk.umd.js",
+  "module": "./dist/spraksjekk.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/spraksjekk.es.js",
+      "require": "./dist/spraksjekk.umd.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/navikt/dab-frontend.git"
+  "dependencies": {
+    "@navikt/aksel-icons": "^3.3.1",
+    "@navikt/ds-css": "^3.3.1",
+    "@navikt/ds-react": "^3.3.1",
+    "@vitejs/plugin-react-swc": "^3.2.0",
+    "clsx": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typo-js-ts": "^2.0.4"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/navikt/dab-frontend/issues"
-  },
-  "homepage": "https://github.com/navikt/dab-frontend#readme",
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "@types/node": "^20.2.4",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.8"
   }
 }

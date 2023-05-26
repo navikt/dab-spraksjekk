@@ -1,0 +1,10 @@
+export {default as Tools} from "./Tools";
+export {default as LongWords} from "./LongWords";
+export {default as LongSentences} from "./LongSentences";
+export {default as LongParagraphs} from "./LongParagraphs";
+export {default as DublicateWords} from "./DublicateWords";
+export {default as CommaCheck} from "./CommaCheck";
+export {default as PersonalData} from "./PersonalData";
+export {default as KansellistenDictionary} from "./KansellistenDictionary";;
+export {default as AvloeserordDictionary} from "./AvloeserordDictionary";
+export {default as NrkDictionaries} from "./NrkDictionaries";
