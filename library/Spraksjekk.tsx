@@ -13,7 +13,7 @@ import {
   Tools,
 } from './analysis';
 
-export interface Props {
+interface Props {
   value?: string;
   open?: boolean;
 }
@@ -24,7 +24,7 @@ export const Spraksjekk = ({ value, open }: Props) => {
   }
 
   return (
-    <Accordion className="språkhjelp-navds-accordion">
+    <Accordion>
       <LongParagraphs content={value} />
       <LongSentences content={value} />
       <LongWords content={value} />
