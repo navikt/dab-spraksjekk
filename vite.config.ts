@@ -1,4 +1,5 @@
 import * as path from 'path';
+import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
@@ -20,5 +21,8 @@ module.exports = defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts(),
+  ],
 });
