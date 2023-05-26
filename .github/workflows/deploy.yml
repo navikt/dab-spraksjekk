@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-env:
-  NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
 jobs:
   build:
@@ -22,6 +20,8 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
       - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: npm run test
       - run: npm run build
       - run: npm publish
