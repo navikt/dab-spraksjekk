@@ -5,6 +5,7 @@
   "files": ["dist"],
   "main": "./dist/spraksjekk.umd.js",
   "module": "./dist/spraksjekk.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/spraksjekk.es.js",
