@@ -6,7 +6,7 @@ React bibliotek for språksjekk
 
 ```sh
 # Installere avhengigheter
-pnpm i
+npm i
 
 # Bygge produksjons kode
 npm run build
