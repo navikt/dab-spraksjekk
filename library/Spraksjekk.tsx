@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { Accordion } from '@navikt/ds-react';
 import {
   AvloeserordDictionary,
@@ -11,7 +11,7 @@ import {
   NrkDictionaries,
   PersonalData,
   Tools,
-} from './analysis';
+} from './analysis/warningAccordion';
 
 interface Props {
   value?: string;

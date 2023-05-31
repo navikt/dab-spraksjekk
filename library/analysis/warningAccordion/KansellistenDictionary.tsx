@@ -1,6 +1,6 @@
 import { Accordion, Heading, Link } from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import { Kansellisten } from './dictionaries/index';
+import { Kansellisten } from '../dictionaries';
 
 function KansellistenDictionary(props: { content: any }) {
   const value = props.content;

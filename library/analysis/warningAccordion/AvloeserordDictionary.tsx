@@ -1,45 +1,15 @@
 import { Accordion, Heading, Link } from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
 
-import { Avloeserord, Datatermer } from './dictionaries/index';
+import {checkOrdliste} from "../textChecker";
 
 function ordlisteCheck(props: { content: any }) {
-  const value = props.content;
-  let ordliste = Avloeserord;
-  let ordlisteResultater;
-  let datatermer = Datatermer;
-  let datatermerResultater;
-
-  const keyword = value;
-  if (keyword !== '') {
-    const results = ordliste.avløserord.filter((ordliste) => {
-      return keyword
-        .toLowerCase()
-        .match('\\b' + ordliste.importord.toLowerCase() + '\\b');
-    });
-    ordlisteResultater = results;
-
-    const results2 = datatermer.datatermer.filter((datatermer) => {
-      return keyword
-        .toLowerCase()
-        .match('\\b' + datatermer.ord.toLowerCase() + '\\b');
-    });
-    datatermerResultater = results2;
-  }
-
-  let ordlisteVisResultater = 0;
-  if (ordlisteResultater != 0) {
-    ordlisteVisResultater = 1;
-  }
-
-  let datatermerVisResultater = 0;
-  if (datatermerResultater != 0) {
-    datatermerVisResultater = 1;
-  }
-
+  const { ordlisteResultater, datatermerResultater } = checkOrdliste(props.content)
+  const ordlisteVisResultater = ordlisteResultater.length !== 0
+  const datatermerVisResultater = datatermerResultater.length !== 0
   return (
     <>
-      {ordlisteVisResultater + datatermerVisResultater != 0 && (
+      {ordlisteVisResultater && datatermerVisResultater && (
         <Accordion.Item>
           <Accordion.Header>
             {ordlisteResultater.length + datatermerResultater.length == 1 ? (
@@ -76,7 +46,7 @@ function ordlisteCheck(props: { content: any }) {
                           href="https://www.sprakradet.no/sprakhjelp/Skriverad/Avloeysarord/"
                         >
                           På godt norsk – avløserord
-                          <ExternalLink />
+                          <ExternalLinkIcon />
                         </Link>
                       }
                     </Accordion.Content>
