@@ -1,35 +1,16 @@
-import {Avloeserord, Datatermer} from "./dictionaries";
+import checkAvloeserord, { AvloeserordResult } from './checkAvloeserord';
+import checkLongParagraphs, { LongParagraphsResult } from './checkLongParagraphs';
 
-const checkText = (text: string) => {
+export interface TextCheck {
+    longParagraphsResult: LongParagraphsResult;
+    avloeserordResult: AvloeserordResult;
+}
+
+const checkText = (text: string): TextCheck => {
     return {
-        ordlisteResultater: checkOrdliste(text),
-        // Og resten
-    }
-}
+        longParagraphsResult: checkLongParagraphs(text),
+        avloeserordResult: checkAvloeserord(text),
+    };
+};
 
-interface AvløserordResult {
-    importord: string
-    avløserord: string
-}
-
-interface CheckDataTermerResult {
-    ord: string
-    bokmål: string
-    nynorsk: string
-    definisjon: string
-}
-
-export const checkOrdliste = (text: string): { datatermerResultater: CheckDataTermerResult[], ordlisteResultater: AvløserordResult[] } => {
-    if (text === '') return { ordlisteResultater: [], datatermerResultater: [] }
-    const ordlisteResultater = Avloeserord.avløserord.filter((ordliste) => {
-        return text
-            .toLowerCase()
-            .match('\\b' + ordliste.importord.toLowerCase() + '\\b');
-    });
-    const datatermerResultater = Datatermer.datatermer.filter((datatermer) => {
-        return text
-            .toLowerCase()
-            .match('\\b' + datatermer.ord.toLowerCase() + '\\b');
-    });
-    return { ordlisteResultater, datatermerResultater }
- }
+export default checkText;
