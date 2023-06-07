@@ -14,7 +14,7 @@ import {
 } from './components';
 
 interface Options {
-    longParagraps?: boolean;
+    longParagraphs?: boolean;
     longSentences?: boolean;
     longWords?: boolean;
     duplicateWords?: boolean;
@@ -34,7 +34,7 @@ interface Props {
 
 export const Spraksjekk = ({ value, open, options = {} }: Props) => {
     const {
-        longParagraps = true,
+        longParagraphs = true,
         longSentences = true,
         longWords = true,
         duplicateWords = true,
@@ -52,9 +52,9 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
 
     return (
         <Accordion>
-            {longParagraps && <LongParagraphs value={value} />}
-            {/*<LongSentences content={value} />*/}
-            {/*<LongWords content={value} />*/}
+            {longParagraphs && <LongParagraphs value={value} />}
+            {longSentences && <LongSentences value={value} />}
+            {longWords && <LongWords value={value} />}
             {/*<DublicateWords content={value} />*/}
             {/*<KansellistenDictionary content={value} />*/}
             {/*<NrkDictionaries content={value} />*/}
