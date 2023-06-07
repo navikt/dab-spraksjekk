@@ -14,7 +14,7 @@ const checkText = (value: string): TextCheck => {
     return {
         longParagraphsResult: checkLongParagraphs(value),
         longSentencesResult: checkLongSentences(value),
-        longWordsResult: checkLongWords(value);
+        longWordsResult: checkLongWords(value),
         avloeserordResult: checkAvloeserord(value),
     };
 };
