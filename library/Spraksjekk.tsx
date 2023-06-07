@@ -3,7 +3,7 @@ import { Accordion } from '@navikt/ds-react';
 import {
     AvloeserordDictionary,
     CommaCheck,
-    DublicateWords,
+    DuplicateWords,
     KansellistenDictionary,
     LongParagraphs,
     LongSentences,
@@ -55,7 +55,7 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
             {longParagraphs && <LongParagraphs value={value} />}
             {longSentences && <LongSentences value={value} />}
             {longWords && <LongWords value={value} />}
-            {/*<DublicateWords content={value} />*/}
+            {duplicateWords && <DuplicateWords value={value} />}
             {/*<KansellistenDictionary content={value} />*/}
             {/*<NrkDictionaries content={value} />*/}
             {avloeserordDictionary && <AvloeserordDictionary value={value} />}
