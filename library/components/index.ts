@@ -7,4 +7,4 @@ export { default as CommaCheck } from './CommaCheck';
 export { default as PersonalData } from './PersonalData';
 export { default as KansellistenDictionary } from './KansellistenDictionary';
 export { default as AvloeserordDictionary } from './AvloeserordDictionary';
-export { default as NrkDictionaries } from './NrkDictionaries';
+export { default as NrkDictionaries } from './NrkDictionary';

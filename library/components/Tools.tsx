@@ -1,13 +1,19 @@
-import { Lix, WordFrequency, WordCount, SpellChecker } from '../analysis/tools';
 import { Accordion } from '@navikt/ds-react';
+import Lix from './tools/Lix';
+import WordCount from './tools/WordCount';
+import WordFrequency from './tools/WordFrequency';
+import SpellChecker from './tools/SpellChecker';
 
-function Tools(props: { content: any }) {
-    const value = props.content;
+interface Props {
+    value: string;
+}
+
+function Tools({ value }: Props) {
     return (
         <Accordion.Item>
             <Accordion.Header>Liks og ordtelling</Accordion.Header>
             <Accordion.Content>
-                <Accordion className="språkhjelp-inner-accordion språkhjelp-mt-2">
+                <Accordion>
                     <Lix content={value} />
                     <WordCount content={value} />
                     <WordFrequency content={value} />

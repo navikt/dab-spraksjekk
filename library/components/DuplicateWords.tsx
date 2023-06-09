@@ -21,13 +21,11 @@ function DuplicateWords({ value: val }: Props) {
                     <>{duplicateWords.length} gjentakelser av like ord</>
                 )}
             </Accordion.Header>
-            <Accordion.Content className="språkhjelp-remove-accordion-padding-bottom">
+            <Accordion.Content>
                 Like ord som er gjentatt etter hverandre:
                 <ul>
                     {duplicateWords.map((duplicateWord, index) => (
-                        <li className="språkhjelp-pb-2" key={index}>
-                            "{duplicateWord}"
-                        </li>
+                        <li key={index}>"{duplicateWord}"</li>
                     ))}
                 </ul>
             </Accordion.Content>

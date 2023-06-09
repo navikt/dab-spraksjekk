@@ -19,7 +19,7 @@ interface Options {
     longWords?: boolean;
     duplicateWords?: boolean;
     kansellistenDictionary?: boolean;
-    nrkDictionaries?: boolean;
+    nrkDictionary?: boolean;
     avloeserordDictionary?: boolean;
     commaCheck?: boolean;
     personalData?: boolean;
@@ -39,7 +39,7 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
         longWords = true,
         duplicateWords = true,
         kansellistenDictionary = true,
-        nrkDictionaries = true,
+        nrkDictionary = true,
         avloeserordDictionary = true,
         commaCheck = true,
         personalData = true,
@@ -56,12 +56,12 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
             {longSentences && <LongSentences value={value} />}
             {longWords && <LongWords value={value} />}
             {duplicateWords && <DuplicateWords value={value} />}
-            {/*<KansellistenDictionary content={value} />*/}
-            {/*<NrkDictionaries content={value} />*/}
+            {kansellistenDictionary && <KansellistenDictionary value={value} />}
+            {nrkDictionary && <NrkDictionaries value={value} />}
             {avloeserordDictionary && <AvloeserordDictionary value={value} />}
-            {/*<CommaCheck content={value} />*/}
-            {/*<PersonalData content={value} />*/}
-            {/*<Tools content={value} />*/}
+            {commaCheck && <CommaCheck value={value} />}
+            {personalData && <PersonalData value={value} />}
+            {tools && <Tools value={value} />}
         </Accordion>
     );
 };
