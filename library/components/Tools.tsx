@@ -14,10 +14,10 @@ function Tools({ value }: Props) {
             <Accordion.Header>Liks og ordtelling</Accordion.Header>
             <Accordion.Content>
                 <Accordion>
-                    <Lix content={value} />
-                    <WordCount content={value} />
-                    <WordFrequency content={value} />
-                    <SpellChecker content={value} />
+                    <Lix value={value} />
+                    <WordCount value={value} />
+                    <WordFrequency value={value} />
+                    <SpellChecker value={value} />
                 </Accordion>
             </Accordion.Content>
         </Accordion.Item>
