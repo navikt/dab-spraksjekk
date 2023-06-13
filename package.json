@@ -26,8 +26,7 @@
     "@navikt/ds-react": "^3.x",
     "react": "17 - 18",
     "react-dom": "17 - 18",
-    "clsx": "^1.x",
-    "typo-js-ts": "^2.x"
+    "clsx": "^1.x"
   },
   "devDependencies": {
     "@types/node": "^20.2.4",
