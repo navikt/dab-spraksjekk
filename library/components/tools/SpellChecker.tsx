@@ -9,7 +9,6 @@ interface Props {
 function SpellChecker({ value }: Props) {
     const [misspellings, setMisspellings] = useState<string[]>([]);
     const [mispellingsCount, setMispellingsCount] = useState(0);
-    const [text, setText] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(false);
 
     const [page, setPage] = useState(1);
@@ -25,13 +24,11 @@ function SpellChecker({ value }: Props) {
 
     const onClickHandler = () => {
         setLoading(true);
-        setText(undefined);
         checkSpelling(value)
             .then(({ mistakes }: SpellingResult) => {
                 setMisspellings(mistakes);
                 setMispellingsCount(mistakes.length);
                 setLoading(false);
-                setText('OK');
             })
             .catch((error) => {
                 console.error(error);
@@ -49,41 +46,37 @@ function SpellChecker({ value }: Props) {
                         Stavekontroll
                     </Button>
                 )}
-                {text === 'OK' && (
+                {misspellings.length > 0 ? (
                     <>
-                        {misspellings.length > 0 ? (
-                            <>
-                                <hr className="språkhjelp-mb-6" />
-                                <Heading aria-live="polite" spacing level="3" size="xsmall">
-                                    {misspellings.length} ord som må sjekkes
-                                </Heading>
-                                <ul>
-                                    {allFreq.map((wordFreq: [string, string]) => {
-                                        return <li key={wordFreq[0]}>"{wordFreq[1]}"</li>;
-                                    })}
-                                </ul>
-                                {mispellingsCount > pageSize && (
-                                    <div className="språkhjelp-pagination-container språkhjelp-mb-6">
-                                        <Pagination
-                                            className="språkhjelp-pagination"
-                                            page={page}
-                                            onPageChange={setPage}
-                                            count={pagesCount}
-                                            size="small"
-                                            siblingCount={0}
-                                            boundaryCount={1}
-                                        />
-                                    </div>
-                                )}
-                            </>
-                        ) : (
-                            <>
-                                <hr className="språkhjelp-mb-6" />
-                                <Heading aria-live="polite" spacing level="3" size="xsmall">
-                                    Fant ingen stavefeil.
-                                </Heading>
-                            </>
+                        <hr className="språkhjelp-mb-6" />
+                        <Heading aria-live="polite" spacing level="3" size="xsmall">
+                            {misspellings.length} ord som må sjekkes
+                        </Heading>
+                        <ul>
+                            {allFreq.map((wordFreq: [string, string]) => {
+                                return <li key={wordFreq[0]}>"{wordFreq[1]}"</li>;
+                            })}
+                        </ul>
+                        {mispellingsCount > pageSize && (
+                            <div className="språkhjelp-pagination-container språkhjelp-mb-6">
+                                <Pagination
+                                    className="språkhjelp-pagination"
+                                    page={page}
+                                    onPageChange={setPage}
+                                    count={pagesCount}
+                                    size="small"
+                                    siblingCount={0}
+                                    boundaryCount={1}
+                                />
+                            </div>
                         )}
+                    </>
+                ) : (
+                    <>
+                        <hr className="språkhjelp-mb-6" />
+                        <Heading aria-live="polite" spacing level="3" size="xsmall">
+                            Fant ingen stavefeil.
+                        </Heading>
                     </>
                 )}
             </Accordion.Content>
