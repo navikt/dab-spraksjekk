@@ -1,6 +1,6 @@
 import { Accordion, Heading, Link, Pagination } from '@navikt/ds-react';
 import { useState } from 'react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkLongSentences from '../analysis/checkLongSentences';
 
 interface Props {
@@ -39,7 +39,7 @@ function LongSentences({ value }: Props) {
                         href="https://strainindex.wordpress.com/2012/04/30/longer-the-sentence-greater-the-strain/"
                     >
                         Nirmaldasan
-                        <ExternalLinkIcon title="Ekstern lenke" />
+                        <ExternalLinkIcon />
                     </Link>
                     <Heading spacing level="3" size="xsmall">
                         Setninger med over 20 ord

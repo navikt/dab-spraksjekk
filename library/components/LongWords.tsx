@@ -1,6 +1,6 @@
 import { Accordion, Table, Pagination, Heading, Link } from '@navikt/ds-react';
 import { useState } from 'react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkLongWords from '../analysis/checkLongWords';
 
 interface Props {
@@ -37,7 +37,7 @@ function LongWords({ value }: Props) {
                 Ifølge lesbarhetsindeksen Liks anses ord med over seks bokstaver som lange -{' '}
                 <Link target="_blank" href="https://no.wikipedia.org/wiki/Lesbarhetsindeks">
                     Wikipedia
-                    <ExternalLinkIcon title="Ekstern lenke" />
+                    <ExternalLinkIcon />
                 </Link>
                 <Heading spacing level="3" size="xsmall">
                     Ord med over seks bokstaver

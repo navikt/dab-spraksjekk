@@ -1,5 +1,5 @@
 import { Accordion, Heading, Link } from '@navikt/ds-react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkKansellisten from '../analysis/checkKansellisten';
 
 interface Props {

@@ -1,6 +1,6 @@
 import { Accordion, Heading, Link, Button, Pagination } from '@navikt/ds-react';
 import { useState } from 'react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkLongParagraphs from '../analysis/checkLongParagraphs';
 
 interface Props {
@@ -46,7 +46,7 @@ function LongParagraphs({ value }: Props) {
                     "Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger." -{' '}
                     <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
                         Aksel
-                        <ExternalLinkIcon title="Ekstern lenke" />
+                        <ExternalLinkIcon />
                     </Link>
                     <Heading spacing level="3" size="xsmall">
                         Avsnitt med over tre setninger
