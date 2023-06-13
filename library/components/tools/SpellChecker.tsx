@@ -77,6 +77,36 @@ function SpellChecker({ value }: Props) {
                         <Heading aria-live="polite" spacing level="3" size="xsmall">
                             Fant ingen stavefeil.
                         </Heading>
+                {misspellings.length > 0 ? (
+                    <>
+                        <hr />
+                        <Heading aria-live="polite" spacing level="3" size="xsmall">
+                            {misspellings.length} ord som må sjekkes
+                        </Heading>
+                        <ul>
+                            {allFreq.map((wordFreq: [string, string]) => {
+                                return <li key={wordFreq[0]}>"{wordFreq[1]}"</li>;
+                            })}
+                        </ul>
+                        {mispellingsCount > pageSize && (
+                            <div>
+                                <Pagination
+                                    page={page}
+                                    onPageChange={setPage}
+                                    count={pagesCount}
+                                    size="small"
+                                    siblingCount={0}
+                                    boundaryCount={1}
+                                />
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    <>
+                        <hr />
+                        <Heading aria-live="polite" spacing level="3" size="xsmall">
+                            Fant ingen stavefeil.
+                        </Heading>
                     </>
                 )}
             </Accordion.Content>
