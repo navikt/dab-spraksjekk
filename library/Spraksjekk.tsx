@@ -1,17 +1,15 @@
 import React from 'react';
 import { Accordion } from '@navikt/ds-react';
-import {
-    AvloeserordDictionary,
-    CommaCheck,
-    DuplicateWords,
-    KansellistenDictionary,
-    LongParagraphs,
-    LongSentences,
-    LongWords,
-    NrkDictionaries,
-    PersonalData,
-    Tools,
-} from './components';
+import LongParagraphs from './components/LongParagraphs';
+import LongSentences from './components/LongSentences';
+import LongWords from './components/LongWords';
+import DuplicateWords from './components/DuplicateWords';
+import KansellistenDictionary from './components/KansellistenDictionary';
+import NrkDictionary from './components/NrkDictionary';
+import AvloeserordDictionary from './components/AvloeserordDictionary';
+import CommaCheck from './components/CommaCheck';
+import PersonalData from './components/PersonalData';
+import Tools from './components/Tools';
 
 interface Options {
     longParagraphs?: boolean;
@@ -57,7 +55,7 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
             {longWords && <LongWords value={value} />}
             {duplicateWords && <DuplicateWords value={value} />}
             {kansellistenDictionary && <KansellistenDictionary value={value} />}
-            {nrkDictionary && <NrkDictionaries value={value} />}
+            {nrkDictionary && <NrkDictionary value={value} />}
             {avloeserordDictionary && <AvloeserordDictionary value={value} />}
             {commaCheck && <CommaCheck value={value} />}
             {personalData && <PersonalData value={value} />}

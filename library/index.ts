@@ -1,1 +1,2 @@
-export * from './Spraksjekk'
+export * from './Spraksjekk';
+export * from './analysis/textChecker';
