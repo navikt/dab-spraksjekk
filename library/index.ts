@@ -1,2 +1,2 @@
 export * from './Spraksjekk';
-export * from './analysis/textChecker';
+export { default as checkText } from './analysis/textChecker';
