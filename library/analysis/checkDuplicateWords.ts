@@ -1,8 +1,4 @@
-export interface DuplicateWordsResult {
-    duplicateWords: string[];
-}
-
-const checkDuplicateWords = (value: string): DuplicateWordsResult => {
+const checkDuplicateWords = (value: string): string[] => {
     const processedValue = value
         .replaceAll('Kontakt', '')
         .replaceAll(/\d+(?: \d+)/g, '')
@@ -13,7 +9,7 @@ const checkDuplicateWords = (value: string): DuplicateWordsResult => {
             return duplicatedWord;
         }) ?? [];
 
-    return { duplicateWords };
+    return duplicateWords;
 };
 
 export default checkDuplicateWords;

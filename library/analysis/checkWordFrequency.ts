@@ -1,8 +1,4 @@
-export interface WordFrequencyResult {
-    frequencies: Record<string, number>;
-}
-
-const checkWordFrequency = (value: string): WordFrequencyResult => {
+const checkWordFrequency = (value: string): Record<string, number> => {
     const preprocessedValue = value
         .replaceAll(/\<\/(.?)\>/g, '')
         .replaceAll(/\<(.?)\>/g, '')
@@ -22,7 +18,7 @@ const checkWordFrequency = (value: string): WordFrequencyResult => {
         };
     }, {});
 
-    return { frequencies };
+    return frequencies;
 };
 
 export default checkWordFrequency;

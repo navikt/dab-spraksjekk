@@ -1,8 +1,4 @@
-export interface LongWordsResult {
-    longWords: string[];
-}
-
-const checkLongWords = (value: string): LongWordsResult => {
+const checkLongWords = (value: string): string[] => {
     const lettersInLongWords = 7;
 
     const processedValue = value
@@ -24,7 +20,7 @@ const checkLongWords = (value: string): LongWordsResult => {
 
     const longWords = words.filter((word) => word.length >= lettersInLongWords).sort((a, b) => b.length - a.length);
 
-    return { longWords };
+    return longWords;
 };
 
 export default checkLongWords;

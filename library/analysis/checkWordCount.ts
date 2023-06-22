@@ -1,4 +1,4 @@
-export interface WordCountResult {
+interface WordCountResult {
     totalWords: number;
     totalSentences: number;
     totalParagraphs: number;

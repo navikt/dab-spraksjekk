@@ -6,20 +6,14 @@ interface Kanselliord {
     alternativ_2: string;
 }
 
-export interface KansellistenResult {
-    matches: Kanselliord[];
-}
-
-const checkKansellisten = (value: string): KansellistenResult => {
-    if (value === '') return { matches: [] };
+const checkKansellisten = (value: string): Kanselliord[] => {
+    if (value === '') return [];
 
     const kanselliordMatches = Kansellisten.filter((ord) => {
         return value.toLowerCase().match('\\b' + ord.kanselliord.toLowerCase() + '\\b');
     });
 
-    return {
-        matches: kanselliordMatches,
-    };
+    return kanselliordMatches;
 };
 
 export default checkKansellisten;

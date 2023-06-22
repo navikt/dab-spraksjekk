@@ -9,18 +9,12 @@ interface NrkOrd {
     lenke: string;
 }
 
-export interface NrkOrdResult {
-    matches: NrkOrd[];
-}
+const checkNrkDictionary = (value: string): NrkOrd[] => {
+    if (value === '') return [];
 
-const checkNrkDictionary = (value: string): NrkOrdResult => {
-    if (value === '') return { matches: [] };
-
-    const matches = Nrkordliste.filter((ord) => {
+    return Nrkordliste.filter((ord) => {
         return value.toLowerCase().match('\\b' + ord.ord.toLowerCase() + '\\b');
     });
-
-    return { matches };
 };
 
 export default checkNrkDictionary;

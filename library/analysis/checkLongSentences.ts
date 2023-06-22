@@ -1,8 +1,4 @@
-export interface LongSentencesResult {
-    longSentences: string[];
-}
-
-const checkLongSentences = (value: string): LongSentencesResult => {
+const checkLongSentences = (value: string): string[] => {
     const wordsInLongSentences = 21;
 
     const processedValue = value
@@ -23,7 +19,7 @@ const checkLongSentences = (value: string): LongSentencesResult => {
         return words.length >= wordsInLongSentences ? [...acc, val] : [...acc];
     }, []);
 
-    return { longSentences };
+    return longSentences;
 };
 
 export default checkLongSentences;

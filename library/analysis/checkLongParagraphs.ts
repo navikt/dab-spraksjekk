@@ -1,8 +1,4 @@
-export interface LongParagraphsResult {
-    longParagraphs: string[];
-}
-
-const checkLongParagraphs = (value: string): LongParagraphsResult => {
+const checkLongParagraphs = (value: string): string[] => {
     const sentencesInLongParagraph = 4;
 
     const processedValue = value
@@ -23,7 +19,7 @@ const checkLongParagraphs = (value: string): LongParagraphsResult => {
         return sentencesInParagraphs.length >= sentencesInLongParagraph ? [...acc, val] : [...acc];
     }, []);
 
-    return { longParagraphs };
+    return longParagraphs;
 };
 
 export default checkLongParagraphs;
