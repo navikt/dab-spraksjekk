@@ -7,7 +7,7 @@ interface Props {
 }
 
 function KansellistenDictionary({ value }: Props) {
-    const { matches } = checkKansellisten(value);
+    const matches = checkKansellisten(value);
 
     if (matches.length === 0) {
         return null;

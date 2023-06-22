@@ -7,7 +7,7 @@ interface Props {
 }
 
 function NrkDictionary({ value }: Props) {
-    const { matches } = checkNrkDictionary(value);
+    const matches = checkNrkDictionary(value);
 
     if (matches.length === 0) {
         return null;

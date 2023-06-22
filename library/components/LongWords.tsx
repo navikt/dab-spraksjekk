@@ -8,7 +8,7 @@ interface Props {
 }
 
 function LongWords({ value }: Props) {
-    const { longWords } = checkLongWords(value);
+    const longWords = checkLongWords(value);
 
     if (longWords.length === 0) {
         return null;

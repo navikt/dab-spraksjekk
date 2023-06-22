@@ -17,7 +17,7 @@ const getLixMelding = (lix: number) => {
 };
 
 function Lix({ value }: Props) {
-    const { lix } = checkLix(value);
+    const lix = checkLix(value);
 
     if (!lix) {
         return (

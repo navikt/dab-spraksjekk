@@ -7,7 +7,7 @@ interface Props {
 }
 
 function WordFrequency(props: Props) {
-    const { frequencies } = checkWordFrequency(props.value);
+    const frequencies = checkWordFrequency(props.value);
 
     if (Object.keys(frequencies).length === 0) {
         return null;

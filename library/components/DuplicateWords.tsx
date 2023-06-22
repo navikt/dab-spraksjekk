@@ -6,7 +6,7 @@ interface Props {
 }
 
 function DuplicateWords({ value: val }: Props) {
-    const { duplicateWords } = checkDuplicateWords(val);
+    const duplicateWords = checkDuplicateWords(val);
 
     if (duplicateWords.length === 0) {
         return null;
