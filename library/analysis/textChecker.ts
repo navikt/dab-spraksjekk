@@ -17,7 +17,7 @@ interface ToolsResult {
     wordFrequencyResult: WordFrequencyResult;
 }
 
-export interface TextCheck {
+export interface TextCheckerResult {
     longParagraphsResult: LongParagraphsResult;
     longSentencesResult: LongSentencesResult;
     longWordsResult: LongWordsResult;
@@ -30,7 +30,7 @@ export interface TextCheck {
     toolsResult: ToolsResult;
 }
 
-const checkText = (value: string): TextCheck => {
+const checkText = (value: string): TextCheckerResult => {
     return {
         longParagraphsResult: checkLongParagraphs(value),
         longSentencesResult: checkLongSentences(value),
