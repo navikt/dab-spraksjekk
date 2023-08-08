@@ -60,6 +60,8 @@ function LongParagraphs({ value }: Props) {
                                         <Button
                                             size="xsmall"
                                             variant="secondary"
+                                            type="button"
+                                            aria-expanded = {expanded[index]}
                                             onClick={() => {
                                                 setExpanded((prevExpanded: boolean[]) => {
                                                     const newExpanded = [...prevExpanded];
