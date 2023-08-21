@@ -1,7 +1,5 @@
 import { Accordion, Link, Pagination, ReadMore } from '@navikt/ds-react';
-import {
-    ExternalLinkIcon
-} from '@navikt/aksel-icons';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import checkLongParagraphs from '../analysis/checkLongParagraphs';
 
@@ -31,7 +29,7 @@ function LongParagraphs({ value }: Props) {
             index: parseInt(obj[0]),
             paragraph: obj[1],
             firstSentence: obj[1].match(firstSentenceRegex)!![0],
-            sentencesInParagraph: obj[1].replace(/([.?!])\s*(?=[A-Z])/g, '$1|').split('|').length
+            sentencesInParagraph: obj[1].replace(/([.?!])\s*(?=[A-Z])/g, '$1|').split('|').length,
         }));
 
     const pagesCount = Math.ceil(longParagraphs.length / pageSize);
@@ -43,19 +41,25 @@ function LongParagraphs({ value }: Props) {
                     {longParagraphs.length} {longParagraphs.length === 1 ? <>langt avsnitt</> : <>lange avsnitt</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                   <p> Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
-                    {longParagraphsInCurrentPage.map(
-                        ({ index, paragraph, firstSentence, sentencesInParagraph }: (typeof longParagraphsInCurrentPage)[0]) => {
-                            return (
-                        <ReadMore key={index} header={firstSentence.substring(0,15) + '...' + ' (' + sentencesInParagraph + ' setninger)'}>
-                           {paragraph}
-                        </ReadMore>
-                            )})}
+                    <p> Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
+                    {longParagraphsInCurrentPage.map((longParagraph) => {
+                        const { paragraph, sentencesInParagraph, firstSentence, index } = longParagraph;
+                        const truncatedHeader =
+                            firstSentence.substring(0, 15) + '...' + ' (' + sentencesInParagraph + ' setninger)';
+                        return (
+                            <ReadMore key={index} header={truncatedHeader}>
+                                {paragraph}
+                            </ReadMore>
+                        );
+                    })}
 
-                    <p>Kilde: <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
-                    Aksel
-                    <ExternalLinkIcon />
-                </Link></p>
+                    <p>
+                        Kilde:{' '}
+                        <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
+                            Aksel
+                            <ExternalLinkIcon />
+                        </Link>
+                    </p>
                     {longParagraphs.length > pageSize && (
                         <div>
                             <Pagination

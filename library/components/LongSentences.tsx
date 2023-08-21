@@ -1,7 +1,5 @@
-import {Accordion, Link, Pagination, ReadMore} from '@navikt/ds-react';
-import {
-    ExternalLinkIcon
-} from '@navikt/aksel-icons';
+import { Accordion, Link, Pagination, ReadMore } from '@navikt/ds-react';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import checkLongSentences from '../analysis/checkLongSentences';
 
@@ -33,18 +31,26 @@ function LongSentences({ value }: Props) {
                 </Accordion.Header>
                 <Accordion.Content>
                     <p>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</p>
-                    {allFreq.map(
-                        (wordFreq: [string, string]) => {
-                            return (
-                                <ReadMore key={wordFreq[0]} header={wordFreq[1].substring(0,15) + '...' + ' (' + wordFreq[1].split(/\s+/).length + ' ord)'}>
-                                   {wordFreq[1]}
-                                </ReadMore>
-                            )})}
+                    {allFreq.map((wordFreq: [string, string]) => {
+                        const truncatedHeader =
+                            wordFreq[1].substring(0, 15) + '...' + ' (' + wordFreq[1].split(/\s+/).length + ' ord)';
+                        return (
+                            <ReadMore key={wordFreq[0]} header={truncatedHeader}>
+                                {wordFreq[1]}
+                            </ReadMore>
+                        );
+                    })}
 
-                    <p>Kilde: <Link target="_blank"  href="https://strainindex.wordpress.com/2012/04/30/longer-the-sentence-greater-the-strain/">
-                    Nirmaldasan
-                    <ExternalLinkIcon />
-                    </Link></p>
+                    <p>
+                        Kilde:{' '}
+                        <Link
+                            target="_blank"
+                            href="https://strainindex.wordpress.com/2012/04/30/longer-the-sentence-greater-the-strain/"
+                        >
+                            Nirmaldasan
+                            <ExternalLinkIcon />
+                        </Link>
+                    </p>
                     {longSentences.length > pageSize && (
                         <div>
                             <Pagination
