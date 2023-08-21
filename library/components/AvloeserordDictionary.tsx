@@ -1,5 +1,5 @@
-import { Accordion, Heading, Link } from '@navikt/ds-react';
-import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
+import { Accordion, Link, ReadMore } from '@navikt/ds-react';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import checkAvloeserord from '../analysis/checkAvloeserord';
 
 interface Props {
@@ -24,67 +24,41 @@ function AvloeserDictionary({ value }: Props) {
                     )}
                 </Accordion.Header>
                 <Accordion.Content>
-                    Norske ord som kan brukes i stedet for de tilsvarende engelske:
+                    <p>Norske ord som kan brukes i stedet for de tilsvarende engelske:</p>
+                    {avloeserordMatches.length > 0 &&
+                        avloeserordMatches.map((ordliste) => (
+                            <ReadMore key={`ordliste-${ordliste.importord}`} header={`"${ordliste.importord}"`}>
+                                Forslag til alternativer: {ordliste.avloeserord}
+                            </ReadMore>
+                        ))}
+                    {datatermerMatches.length > 0 &&
+                        datatermerMatches.map((ordliste) => (
+                            <ReadMore key={`dataterm-${ordliste.ord}`} header={`"${ordliste.ord}"`}>
+                                Forslag til alternativer: {ordliste.bokmaal}
+                                <p>{ordliste.definisjon}</p>
+                            </ReadMore>
+                        ))}
                     {avloeserordMatches.length > 0 && (
-                        <Accordion>
-                            {avloeserordMatches.map((ordliste) => (
-                                <Accordion.Item key={`ordliste-${ordliste.importord}`}>
-                                    <Accordion.Header>
-                                        <span>"{ordliste.importord}"</span>
-                                    </Accordion.Header>
-                                    <Accordion.Content>
-                                        <Heading spacing level="4" size="xsmall">
-                                            Avløserord
-                                        </Heading>
-                                        <p>{ordliste.avloeserord}</p>
-                                        <Heading spacing level="4" size="xsmall">
-                                            Kilde
-                                        </Heading>
-                                        {
-                                            <Link
-                                                target="_blank"
-                                                href="https://www.sprakradet.no/sprakhjelp/Skriverad/Avloeysarord/"
-                                            >
-                                                På godt norsk – avløserord
-                                                <ExternalLinkIcon />
-                                            </Link>
-                                        }
-                                    </Accordion.Content>
-                                </Accordion.Item>
-                            ))}
-                        </Accordion>
+                        <>
+                            <br />
+                            Kilde:{' '}
+                            <Link target="_blank" href="https://www.sprakradet.no/sprakhjelp/Skriverad/Avloeysarord/">
+                                På godt norsk – avløserord
+                                <ExternalLinkIcon />
+                            </Link>
+                        </>
                     )}
                     {datatermerMatches.length > 0 && (
-                        <Accordion>
-                            {datatermerMatches.map((ordliste) => (
-                                <Accordion.Item key={`dataterm-${ordliste.ord}`}>
-                                    <Accordion.Header>
-                                        <span>"{ordliste.ord}"</span>
-                                    </Accordion.Header>
-                                    <Accordion.Content>
-                                        <Heading spacing level="4" size="xsmall">
-                                            Avløserord
-                                        </Heading>
-                                        <p>{ordliste.bokmaal}</p>
-                                        <Heading spacing level="4" size="xsmall">
-                                            Definisjon/forklaring
-                                        </Heading>
-                                        <p>{ordliste.definisjon}</p>
-                                        <Heading spacing level="4" size="xsmall">
-                                            Kilde
-                                        </Heading>
-                                        {
-                                            <Link
-                                                target="_blank"
-                                                href="https://www.sprakradet.no/sprakhjelp/Skriverad/Ordlister/Datatermar/"
-                                            >
-                                                Språkrådets datatermer <ExternalLinkIcon />
-                                            </Link>
-                                        }
-                                    </Accordion.Content>
-                                </Accordion.Item>
-                            ))}
-                        </Accordion>
+                        <>
+                            <br />
+                            Kilde:{' '}
+                            <Link
+                                target="_blank"
+                                href="https://www.sprakradet.no/sprakhjelp/Skriverad/Ordlister/Datatermar/"
+                            >
+                                Språkrådets datatermer <ExternalLinkIcon />
+                            </Link>
+                        </>
                     )}
                 </Accordion.Content>
             </Accordion.Item>
