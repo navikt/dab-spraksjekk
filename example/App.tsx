@@ -8,7 +8,7 @@ export default function App() {
     const [open, setOpen] = useState(false);
 
     return (
-        <>
+        <div>
             <Switch checked={open} onChange={() => setOpen(!open)}>
                 Slå på språksjekk
             </Switch>
@@ -19,6 +19,6 @@ export default function App() {
                 }}
             />
             <Spraksjekk value={value} open={open} />
-        </>
+        </div>
     );
 }

@@ -1,6 +1,8 @@
-import { Accordion, Heading, Link } from '@navikt/ds-react';
-import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
-import checkNrkDictionary from '../analysis/checkNrkDictionary';
+import {Accordion, Link, ReadMore} from '@navikt/ds-react';
+import {
+    ExternalLinkIcon
+} from '@navikt/aksel-icons';
+import checkNrkDictionary, {NrkOrd} from '../analysis/checkNrkDictionary';
 
 interface Props {
     value: string;
@@ -13,40 +15,36 @@ function NrkDictionary({ value }: Props) {
         return null;
     }
 
+
+    const unikeLenker  = Array.from(matches.reduce((previousValue, currentValue) => {
+        return previousValue.set(currentValue.kilde, currentValue)
+    }, new Map<NrkOrd["kilde"], NrkOrd>()).values())
+
+
     return (
         <Accordion.Item>
             <Accordion.Header>
                 {matches.length == 1 ? <>1 mulig støtende ord</> : <>{matches.length} mulige støtende ord</>}
             </Accordion.Header>
             <Accordion.Content>
-                <Heading spacing level="3" size="xsmall">
-                    Vær varsom
-                </Heading>
-                Ord i teksten som kan være støtende, eller som bør brukes med varsomhet:
-                <Accordion>
+                <p>Ord i teksten som kan være støtende, eller som bør brukes med varsomhet.</p>
                     {matches.map((ord) => (
-                        <Accordion.Item key={ord.id}>
-                            <Accordion.Header>
-                                <span>"{ord.ord}"</span>
-                            </Accordion.Header>
-                            <Accordion.Content>
-                                <Heading spacing level="4" size="xsmall">
-                                    Forklaring
-                                </Heading>
-                                <p>{ord.bokmaal}</p>
-                                <Heading spacing level="4" size="xsmall">
-                                    Kilde
-                                </Heading>
-                                {
-                                    <Link target="_blank" href={ord.lenke}>
-                                        {ord.kilde}
-                                        <ExternalLinkIcon />
-                                    </Link>
-                                }
-                            </Accordion.Content>
-                        </Accordion.Item>
-                    ))}
-                </Accordion>
+                        <ReadMore key={ord.id} header={ord.ord}>
+                            {ord.bokmaal}{ord.kilde}
+
+                        </ReadMore>
+                    ))}<br/>
+
+                {unikeLenker.map((ord) => (
+                    <div key={ord.kilde}>Kilde: <Link
+                        target="_blank"
+                        href={ord.lenke}
+                    >
+                        {ord.kilde}
+                        <ExternalLinkIcon />
+                    </Link><br/></div>
+                ))}
+
             </Accordion.Content>
         </Accordion.Item>
     );

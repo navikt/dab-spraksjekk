@@ -1,6 +1,8 @@
-import { Accordion, Heading, Link, Button, Pagination } from '@navikt/ds-react';
+import { Accordion, Link, Pagination, ReadMore } from '@navikt/ds-react';
+import {
+    ExternalLinkIcon
+} from '@navikt/aksel-icons';
 import { useState } from 'react';
-import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkLongParagraphs from '../analysis/checkLongParagraphs';
 
 interface Props {
@@ -29,6 +31,7 @@ function LongParagraphs({ value }: Props) {
             index: parseInt(obj[0]),
             paragraph: obj[1],
             firstSentence: obj[1].match(firstSentenceRegex)!![0],
+            sentencesInParagraph: obj[1].replace(/([.?!])\s*(?=[A-Z])/g, '$1|').split('|').length
         }));
 
     const pagesCount = Math.ceil(longParagraphs.length / pageSize);
@@ -40,48 +43,19 @@ function LongParagraphs({ value }: Props) {
                     {longParagraphs.length} {longParagraphs.length === 1 ? <>langt avsnitt</> : <>lange avsnitt</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <Heading spacing level="3" size="xsmall">
-                        Skriv korte og enkle avsnitt
-                    </Heading>
-                    "Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger." -{' '}
-                    <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
-                        Aksel
-                        <ExternalLinkIcon />
-                    </Link>
-                    <Heading spacing level="3" size="xsmall">
-                        Avsnitt med over tre setninger
-                    </Heading>
-                    <ul>
-                        {longParagraphsInCurrentPage.map(
-                            ({ index, paragraph, firstSentence }: (typeof longParagraphsInCurrentPage)[0]) => {
-                                return (
-                                    <li key={index}>
-                                        {expanded[index] ? <>"{paragraph} </> : <>"{firstSentence} </>}
-                                        <Button
-                                            size="xsmall"
-                                            variant="secondary"
-                                            type="button"
-                                            aria-expanded = {expanded[index]}
-                                            onClick={() => {
-                                                setExpanded((prevExpanded: boolean[]) => {
-                                                    const newExpanded = [...prevExpanded];
-                                                    newExpanded[index] = !newExpanded[index];
-                                                    return newExpanded;
-                                                });
-                                            }}
-                                        >
-                                            {expanded[index] ? 'Vis mindre' : 'Les mer'}
-                                        </Button>
-                                        "{' '}
-                                        <b>
-                                            ({paragraph.replace(/([.?!])\s*(?=[A-Z])/g, '$1|').split('|').length}
-                                            &nbsp;setninger)
-                                        </b>
-                                    </li>
-                                );
-                            }
-                        )}
-                    </ul>
+                   <p> Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
+                    {longParagraphsInCurrentPage.map(
+                        ({ index, paragraph, firstSentence, sentencesInParagraph }: (typeof longParagraphsInCurrentPage)[0]) => {
+                            return (
+                        <ReadMore key={index} header={firstSentence.substring(0,15) + '...' + ' (' + sentencesInParagraph + ' setninger)'}>
+                           {paragraph}
+                        </ReadMore>
+                            )})}
+
+                    <p>Kilde: <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
+                    Aksel
+                    <ExternalLinkIcon />
+                </Link></p>
                     {longParagraphs.length > pageSize && (
                         <div>
                             <Pagination

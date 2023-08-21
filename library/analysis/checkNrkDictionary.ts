@@ -1,6 +1,6 @@
 import { Nrkordliste } from './dictionaries';
 
-interface NrkOrd {
+export interface NrkOrd {
     id: string;
     ord: string;
     bruk: string;

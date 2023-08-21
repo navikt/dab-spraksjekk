@@ -1,6 +1,8 @@
-import { Accordion, Heading, Link, Pagination } from '@navikt/ds-react';
+import {Accordion, Link, Pagination, ReadMore} from '@navikt/ds-react';
+import {
+    ExternalLinkIcon
+} from '@navikt/aksel-icons';
 import { useState } from 'react';
-import { ReactComponent as ExternalLinkIcon } from './ExternalLink.svg';
 import checkLongSentences from '../analysis/checkLongSentences';
 
 interface Props {
@@ -30,29 +32,19 @@ function LongSentences({ value }: Props) {
                     {longSentences.length} {longSentences.length === 1 ? <>lang setning</> : <>lange setninger</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <Heading spacing level="3" size="xsmall">
-                        Skriv korte og enkle setninger
-                    </Heading>
-                    Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese -{' '}
-                    <Link
-                        target="_blank"
-                        href="https://strainindex.wordpress.com/2012/04/30/longer-the-sentence-greater-the-strain/"
-                    >
-                        Nirmaldasan
-                        <ExternalLinkIcon />
-                    </Link>
-                    <Heading spacing level="3" size="xsmall">
-                        Setninger med over 20 ord
-                    </Heading>
-                    <ul>
-                        {allFreq.map((wordFreq: [string, string]) => {
+                    <p>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</p>
+                    {allFreq.map(
+                        (wordFreq: [string, string]) => {
                             return (
-                                <li key={wordFreq[0]}>
-                                    "{wordFreq[1]}" <b>({wordFreq[1].split(/\s+/).length}&nbsp;ord)</b>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                <ReadMore key={wordFreq[0]} header={wordFreq[1].substring(0,15) + '...' + ' (' + wordFreq[1].split(/\s+/).length + ' ord)'}>
+                                   {wordFreq[1]}
+                                </ReadMore>
+                            )})}
+
+                    <p>Kilde: <Link target="_blank"  href="https://strainindex.wordpress.com/2012/04/30/longer-the-sentence-greater-the-strain/">
+                    Nirmaldasan
+                    <ExternalLinkIcon />
+                    </Link></p>
                     {longSentences.length > pageSize && (
                         <div>
                             <Pagination
