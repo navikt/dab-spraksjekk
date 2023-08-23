@@ -1,4 +1,4 @@
-import { Accordion, Link, ReadMore } from '@navikt/ds-react';
+import {Accordion, BodyShort, Link, ReadMore} from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import checkAvloeserord from '../analysis/checkAvloeserord';
 
@@ -24,7 +24,8 @@ function AvloeserDictionary({ value }: Props) {
                     )}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p style={{marginBottom: 18}}>Norske ord som kan brukes i stedet for de tilsvarende engelske:</p>
+                    <BodyShort spacing>Norske ord som kan brukes i stedet for de tilsvarende engelske:</BodyShort>
+                    <BodyShort spacing>
                     {avloeserordMatches.length > 0 &&
                         avloeserordMatches.map((ordliste) => (
                             <ReadMore key={`ordliste-${ordliste.importord}`} header={`"${ordliste.importord}"`}>
@@ -38,20 +39,19 @@ function AvloeserDictionary({ value }: Props) {
                                 <p>{ordliste.definisjon}</p>
                             </ReadMore>
                         ))}
+                    </BodyShort>
                     <div>
                     {avloeserordMatches.length > 0 && (
-                        <>
-                            <br />
+                       <BodyShort>
                             Kilde:{' '}
                             <Link target="_blank" href="https://www.sprakradet.no/sprakhjelp/Skriverad/Avloeysarord/">
                                 På godt norsk – avløserord
                                 <ExternalLinkIcon />
                             </Link>
-                        </>
+                       </BodyShort>
                     )}
                     {datatermerMatches.length > 0 && (
-                        <>
-                            <br />
+                        <BodyShort>
                             Kilde:{' '}
                             <Link
                                 target="_blank"
@@ -59,7 +59,7 @@ function AvloeserDictionary({ value }: Props) {
                             >
                                 Språkrådets datatermer <ExternalLinkIcon />
                             </Link>
-                        </>
+                        </BodyShort>
                     )}
                     </div>
                 </Accordion.Content>

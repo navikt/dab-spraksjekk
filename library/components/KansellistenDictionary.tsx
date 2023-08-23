@@ -1,4 +1,4 @@
-import {Accordion, Link, ReadMore} from '@navikt/ds-react';
+import {Accordion, BodyShort, Link, ReadMore} from '@navikt/ds-react';
 import {
     ExternalLinkIcon
 } from '@navikt/aksel-icons';
@@ -21,7 +21,8 @@ function KansellistenDictionary({ value }: Props) {
                 {matches.length == 1 ? <>1 ord som kan byttes ut</> : <>{matches.length} ord som kan byttes ut</>}
             </Accordion.Header>
             <Accordion.Content>
-                <p style={{marginBottom: 18}}>Ord og uttrykk som er utdaterte eller sier noe på en vanskeligere måte enn nødvendig.</p>
+                <BodyShort spacing>Ord og uttrykk som er utdaterte eller sier noe på en vanskeligere måte enn nødvendig.</BodyShort>
+                <BodyShort spacing>
                 {matches.length >= 1 && (
                     matches.map((match) => (
                             <ReadMore key={match.kanselliord} header={match.kanselliord}>
@@ -29,14 +30,14 @@ function KansellistenDictionary({ value }: Props) {
                             </ReadMore>
 
                         ))
-                )}
-                <p style={{marginTop: 18}}>Kilde: <Link
+                )}</BodyShort>
+                <BodyShort>Kilde: <Link
                     target="_blank"
                     href="https://www.sprakradet.no/klarsprak/om-skriving/kansellisten/"
                 >
                     Kansellisten
                     <ExternalLinkIcon />
-                </Link></p>
+                </Link></BodyShort>
             </Accordion.Content>
         </Accordion.Item>
     );

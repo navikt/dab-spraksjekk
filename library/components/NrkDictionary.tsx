@@ -1,4 +1,4 @@
-import { Accordion, Link, ReadMore } from '@navikt/ds-react';
+import {Accordion, BodyShort, Link, ReadMore} from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import checkNrkDictionary, { NrkOrd } from '../analysis/checkNrkDictionary';
 
@@ -27,24 +27,23 @@ function NrkDictionary({ value }: Props) {
                 {matches.length == 1 ? <>1 mulig støtende ord</> : <>{matches.length} mulige støtende ord</>}
             </Accordion.Header>
             <Accordion.Content>
-                <p style={{marginBottom: 18}}>Ord i teksten som kan være støtende, eller som bør brukes med varsomhet.</p>
+                <BodyShort spacing>Ord i teksten som kan være støtende, eller som bør brukes med varsomhet.</BodyShort>
+                <BodyShort spacing>
                 {matches.map((ord) => (
                     <ReadMore key={ord.id} header={ord.ord}>
                         {ord.bokmaal}
                     </ReadMore>
-                ))}
-                <div style={{marginTop: 18}}>
+                ))}</BodyShort>
                 {unikeLenker.map((ord) => (
-                    <div key={ord.kilde}>
+                    <BodyShort key={ord.kilde}>
                         Kilde:{' '}
                         <Link target="_blank" href={ord.lenke}>
                             {ord.kilde}
                             <ExternalLinkIcon />
                         </Link>
-                        <br />
-                    </div>
+                    </BodyShort>
                 ))}
-                    </div>
+
             </Accordion.Content>
         </Accordion.Item>
     );

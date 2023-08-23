@@ -1,4 +1,4 @@
-import { Accordion, Link, Pagination, ReadMore } from '@navikt/ds-react';
+import {Accordion, BodyShort, Link, Pagination, ReadMore} from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import checkLongParagraphs from '../analysis/checkLongParagraphs';
@@ -40,7 +40,8 @@ function LongParagraphs({ value }: Props) {
                     {longParagraphs.length} {longParagraphs.length === 1 ? <>langt avsnitt</> : <>lange avsnitt</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p style={{marginBottom: 18 }}>Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
+                    <BodyShort spacing>Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</BodyShort>
+                    <BodyShort spacing>
                     {longParagraphsInCurrentPage.map((longParagraph) => {
                         const { paragraph, sentencesInParagraph, firstSentence, index } = longParagraph;
                         const truncatedHeader =
@@ -51,16 +52,17 @@ function LongParagraphs({ value }: Props) {
                             </ReadMore>
                         );
                     })}
+                    </BodyShort>
 
-                    <p style={{marginTop: 18}}>
+                    <BodyShort>
                         Kilde:{' '}
                         <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
                             Aksel
                             <ExternalLinkIcon />
                         </Link>
-                    </p>
+                    </BodyShort>
                     {longParagraphs.length > pageSize && (
-                        <div>
+
                             <Pagination
                                 page={page}
                                 onPageChange={setPage}
@@ -69,7 +71,6 @@ function LongParagraphs({ value }: Props) {
                                 siblingCount={0}
                                 boundaryCount={1}
                             />
-                        </div>
                     )}
                 </Accordion.Content>
             </Accordion.Item>

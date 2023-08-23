@@ -1,4 +1,4 @@
-import {Accordion, Heading, List} from '@navikt/ds-react';
+import {Accordion, BodyShort, Heading, List} from '@navikt/ds-react';
 import checkPersonalData from '../analysis/checkPersonalData';
 
 interface Props {
@@ -24,7 +24,7 @@ function PersonalData({ value }: Props) {
             </Accordion.Header>
             <Accordion.Content>
                 {emails.length >= 1 && (
-                    <div style={{marginBottom: 18}}>
+                    <BodyShort spacing>
                         <Heading spacing level="3" size="xsmall">
                             E-postadresser
                         </Heading>
@@ -33,10 +33,10 @@ function PersonalData({ value }: Props) {
                                 <List.Item key={index}>"{email}"</List.Item>
                             ))}
                         </List>
-                    </div>
+                    </BodyShort>
                 )}
                 {phonenumbers.length >= 1 && (
-                    <div style={{marginBottom: 18}}>
+                    <BodyShort spacing>
                         <Heading spacing level="3" size="xsmall">
                             Telefonnummer
                         </Heading>
@@ -45,10 +45,10 @@ function PersonalData({ value }: Props) {
                                 <List.Item key={index}>"{phonenumber}"</List.Item>
                             ))}
                         </List>
-                    </div>
+                    </BodyShort>
                 )}
                 {names.length >= 1 && (
-                    <div style={{marginBottom: 18}}>
+                    <BodyShort>
                         <Heading spacing level="3" size="xsmall">
                             Navn
                         </Heading>
@@ -57,7 +57,7 @@ function PersonalData({ value }: Props) {
                                 <List.Item key={index}>"{name}"</List.Item>
                             ))}
                         </List>
-                    </div>
+                    </BodyShort>
                 )}
             </Accordion.Content>
         </Accordion.Item>
