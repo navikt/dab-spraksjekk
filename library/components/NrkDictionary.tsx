@@ -27,14 +27,13 @@ function NrkDictionary({ value }: Props) {
                 {matches.length == 1 ? <>1 mulig støtende ord</> : <>{matches.length} mulige støtende ord</>}
             </Accordion.Header>
             <Accordion.Content>
-                <p>Ord i teksten som kan være støtende, eller som bør brukes med varsomhet.</p>
+                <p style={{marginBottom: 18}}>Ord i teksten som kan være støtende, eller som bør brukes med varsomhet.</p>
                 {matches.map((ord) => (
                     <ReadMore key={ord.id} header={ord.ord}>
                         {ord.bokmaal}
                     </ReadMore>
                 ))}
-                <br />
-
+                <div style={{marginTop: 18}}>
                 {unikeLenker.map((ord) => (
                     <div key={ord.kilde}>
                         Kilde:{' '}
@@ -45,6 +44,7 @@ function NrkDictionary({ value }: Props) {
                         <br />
                     </div>
                 ))}
+                    </div>
             </Accordion.Content>
         </Accordion.Item>
     );

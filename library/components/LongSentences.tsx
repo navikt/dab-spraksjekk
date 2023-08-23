@@ -30,7 +30,7 @@ function LongSentences({ value }: Props) {
                     {longSentences.length} {longSentences.length === 1 ? <>lang setning</> : <>lange setninger</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</p>
+                    <p style={{marginBottom: 18 }}>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</p>
                     {allFreq.map((wordFreq: [string, string]) => {
                         const truncatedHeader =
                             wordFreq[1].substring(0, 15) + '...' + ' (' + wordFreq[1].split(/\s+/).length + ' ord)';
@@ -41,7 +41,7 @@ function LongSentences({ value }: Props) {
                         );
                     })}
 
-                    <p>
+                    <p style={{marginTop: 18 }}>
                         Kilde:{' '}
                         <Link
                             target="_blank"
@@ -52,7 +52,7 @@ function LongSentences({ value }: Props) {
                         </Link>
                     </p>
                     {longSentences.length > pageSize && (
-                        <div>
+                        <div style={{marginTop: 18}}>
                             <Pagination
                                 page={page}
                                 onPageChange={setPage}

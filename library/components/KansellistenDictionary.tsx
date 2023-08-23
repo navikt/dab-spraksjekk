@@ -21,7 +21,7 @@ function KansellistenDictionary({ value }: Props) {
                 {matches.length == 1 ? <>1 ord som kan byttes ut</> : <>{matches.length} ord som kan byttes ut</>}
             </Accordion.Header>
             <Accordion.Content>
-                <p>Ord og uttrykk som er utdaterte eller sier noe på en vanskeligere måte enn nødvendig.</p>
+                <p style={{marginBottom: 18}}>Ord og uttrykk som er utdaterte eller sier noe på en vanskeligere måte enn nødvendig.</p>
                 {matches.length >= 1 && (
                     matches.map((match) => (
                             <ReadMore key={match.kanselliord} header={match.kanselliord}>
@@ -30,7 +30,7 @@ function KansellistenDictionary({ value }: Props) {
 
                         ))
                 )}
-                <p>Kilde: <Link
+                <p style={{marginTop: 18}}>Kilde: <Link
                     target="_blank"
                     href="https://www.sprakradet.no/klarsprak/om-skriving/kansellisten/"
                 >

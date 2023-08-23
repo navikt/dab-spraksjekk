@@ -15,7 +15,6 @@ function LongParagraphs({ value }: Props) {
     }
 
     const [page, setPage] = useState(1);
-    const [expanded, setExpanded] = useState<boolean[]>([]);
 
     const firstSentenceRegex = /^[^.!?]*[.!?]/;
 
@@ -41,7 +40,7 @@ function LongParagraphs({ value }: Props) {
                     {longParagraphs.length} {longParagraphs.length === 1 ? <>langt avsnitt</> : <>lange avsnitt</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p> Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
+                    <p style={{marginBottom: 18 }}>Et avsnitt bør ha ett hovedbudskap og ikke ha mer enn to til tre setninger.</p>
                     {longParagraphsInCurrentPage.map((longParagraph) => {
                         const { paragraph, sentencesInParagraph, firstSentence, index } = longParagraph;
                         const truncatedHeader =
@@ -53,7 +52,7 @@ function LongParagraphs({ value }: Props) {
                         );
                     })}
 
-                    <p>
+                    <p style={{marginTop: 18}}>
                         Kilde:{' '}
                         <Link target="_blank" href="https://aksel.nav.no/artikkel/sprakarbeid?tema=innholdsarbeid">
                             Aksel

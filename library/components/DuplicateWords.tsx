@@ -1,4 +1,4 @@
-import { Accordion } from '@navikt/ds-react';
+import {Accordion, List } from '@navikt/ds-react';
 import checkDuplicateWords from '../analysis/checkDuplicateWords';
 
 interface Props {
@@ -22,12 +22,12 @@ function DuplicateWords({ value: val }: Props) {
                 )}
             </Accordion.Header>
             <Accordion.Content>
-                Like ord som er gjentatt etter hverandre:
-                <ul>
+                <p style={{marginBottom: 18}}> Like ord som er gjentatt etter hverandre: </p>
+                <List>
                     {duplicateWords.map((duplicateWord, index) => (
-                        <li key={index}>"{duplicateWord}"</li>
+                        <List.Item key={index}>"{duplicateWord}"</List.Item>
                     ))}
-                </ul>
+                </List>
             </Accordion.Content>
         </Accordion.Item>
     );

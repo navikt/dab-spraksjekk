@@ -24,7 +24,7 @@ function AvloeserDictionary({ value }: Props) {
                     )}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p>Norske ord som kan brukes i stedet for de tilsvarende engelske:</p>
+                    <p style={{marginBottom: 18}}>Norske ord som kan brukes i stedet for de tilsvarende engelske:</p>
                     {avloeserordMatches.length > 0 &&
                         avloeserordMatches.map((ordliste) => (
                             <ReadMore key={`ordliste-${ordliste.importord}`} header={`"${ordliste.importord}"`}>
@@ -38,6 +38,7 @@ function AvloeserDictionary({ value }: Props) {
                                 <p>{ordliste.definisjon}</p>
                             </ReadMore>
                         ))}
+                    <div>
                     {avloeserordMatches.length > 0 && (
                         <>
                             <br />
@@ -60,6 +61,7 @@ function AvloeserDictionary({ value }: Props) {
                             </Link>
                         </>
                     )}
+                    </div>
                 </Accordion.Content>
             </Accordion.Item>
         </>
