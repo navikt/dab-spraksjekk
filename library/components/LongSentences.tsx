@@ -1,4 +1,4 @@
-import { Accordion, Link, Pagination, ReadMore } from '@navikt/ds-react';
+import {Accordion, BodyShort, Link, Pagination, ReadMore} from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import checkLongSentences from '../analysis/checkLongSentences';
@@ -30,7 +30,8 @@ function LongSentences({ value }: Props) {
                     {longSentences.length} {longSentences.length === 1 ? <>lang setning</> : <>lange setninger</>}
                 </Accordion.Header>
                 <Accordion.Content>
-                    <p>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</p>
+                    <BodyShort spacing>Ifølge studier kan setninger med over 20 ord anses som vanskelige å lese.</BodyShort>
+                    <BodyShort spacing>
                     {allFreq.map((wordFreq: [string, string]) => {
                         const truncatedHeader =
                             wordFreq[1].substring(0, 15) + '...' + ' (' + wordFreq[1].split(/\s+/).length + ' ord)';
@@ -40,8 +41,8 @@ function LongSentences({ value }: Props) {
                             </ReadMore>
                         );
                     })}
-
-                    <p>
+                    </BodyShort>
+                    <BodyShort>
                         Kilde:{' '}
                         <Link
                             target="_blank"
@@ -50,9 +51,9 @@ function LongSentences({ value }: Props) {
                             Nirmaldasan
                             <ExternalLinkIcon />
                         </Link>
-                    </p>
+                    </BodyShort>
                     {longSentences.length > pageSize && (
-                        <div>
+                        <div style={{marginTop: 18}}>
                             <Pagination
                                 page={page}
                                 onPageChange={setPage}

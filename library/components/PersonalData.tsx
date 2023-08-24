@@ -1,4 +1,4 @@
-import { Accordion, Heading } from '@navikt/ds-react';
+import {Accordion, BodyShort, Heading, List} from '@navikt/ds-react';
 import checkPersonalData from '../analysis/checkPersonalData';
 
 interface Props {
@@ -24,40 +24,40 @@ function PersonalData({ value }: Props) {
             </Accordion.Header>
             <Accordion.Content>
                 {emails.length >= 1 && (
-                    <>
+                    <BodyShort spacing>
                         <Heading spacing level="3" size="xsmall">
                             E-postadresser
                         </Heading>
-                        <ul>
+                        <List>
                             {emails.map((email, index) => (
-                                <li key={index}>"{email}"</li>
+                                <List.Item key={index}>"{email}"</List.Item>
                             ))}
-                        </ul>
-                    </>
+                        </List>
+                    </BodyShort>
                 )}
                 {phonenumbers.length >= 1 && (
-                    <>
+                    <BodyShort spacing>
                         <Heading spacing level="3" size="xsmall">
                             Telefonnummer
                         </Heading>
-                        <ul>
+                        <List>
                             {phonenumbers.map((phonenumber, index) => (
-                                <li key={index}>"{phonenumber}"</li>
+                                <List.Item key={index}>"{phonenumber}"</List.Item>
                             ))}
-                        </ul>
-                    </>
+                        </List>
+                    </BodyShort>
                 )}
                 {names.length >= 1 && (
-                    <>
+                    <BodyShort>
                         <Heading spacing level="3" size="xsmall">
                             Navn
                         </Heading>
-                        <ul>
+                        <List>
                             {names.map((name, index) => (
-                                <li key={index}>"{name}"</li>
+                                <List.Item key={index}>"{name}"</List.Item>
                             ))}
-                        </ul>
-                    </>
+                        </List>
+                    </BodyShort>
                 )}
             </Accordion.Content>
         </Accordion.Item>
