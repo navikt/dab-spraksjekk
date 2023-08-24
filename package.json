@@ -1,6 +1,6 @@
 {
   "name": "@navikt/dab-spraksjekk",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "files": [
     "dist"
@@ -21,8 +21,8 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "@navikt/ds-css": "^5.0.3",
-    "@navikt/ds-react": "^5.0.3",
+    "@navikt/ds-css": "^4.12.1",
+    "@navikt/ds-react": "^4.12.1",
     "react": "17 - 18"
   },
   "devDependencies": {
