@@ -42,7 +42,7 @@ function LongSentences({ value }: Props) {
                         );
                     })}
                     </BodyShort>
-                    <BodyShort>
+                    <BodyShort spacing>
                         Kilde:{' '}
                         <Link
                             target="_blank"
@@ -53,7 +53,7 @@ function LongSentences({ value }: Props) {
                         </Link>
                     </BodyShort>
                     {longSentences.length > pageSize && (
-                        <div style={{marginTop: 18}}>
+                        <div>
                             <Pagination
                                 page={page}
                                 onPageChange={setPage}
