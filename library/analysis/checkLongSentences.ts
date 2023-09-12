@@ -8,7 +8,7 @@ const checkLongSentences = (value: string): string[] => {
         .join('\n');
 
     const sentences = processedValue
-        .replace(/([.?!–"“:*])\s*(?=[A-ZÆØÅ.*«»0-9"“–\d\n])/g, '$1|')
+        .replace(/([.?!–\-•"“:*])\s*(?=[A-ZÆØÅ.•*«»"“–\-\d\n])/g, '$1|')
         .split('|')
         .sort((a, b) => {
             return b.split(/\s+/).length - a.split(/\s+/).length;
