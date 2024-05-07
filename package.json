@@ -1,6 +1,6 @@
 {
   "name": "@navikt/dab-spraksjekk",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "files": [
     "dist"
@@ -21,20 +21,20 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "@navikt/ds-css": "^5.x",
-    "@navikt/ds-react": "^5.x",
+    "@navikt/ds-css": "^6.x",
+    "@navikt/ds-react": "^6.x",
     "react": "17 - 18"
   },
   "devDependencies": {
     "react-dom": "17 - 18",
-    "@types/node": "^20.2.4",
-    "@types/react": "^18.2.6",
-    "@types/react-dom": "^18.2.4",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.8",
-    "@vitejs/plugin-react-swc": "^3.2.0",
-    "vite-plugin-dts": "^2.3.0",
-    "vite-plugin-svgr": "^2.4.0"
+    "@types/node": "^20.12.10",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-svgr": "^4.2.0"
   }
 }
