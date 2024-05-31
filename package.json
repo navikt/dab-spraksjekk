@@ -1,6 +1,6 @@
 {
   "name": "@navikt/dab-spraksjekk",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "files": [
     "dist"

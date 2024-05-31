@@ -1,9 +1,5 @@
  [
     {
-      "importord": "@",
-      "avloeserord": "krøllalfa"
-    },
-    {
       "importord": "abort",
       "avloeserord": "(IKT) programbrot/programbrudd, programavbrot/programavbrudd"
     },
