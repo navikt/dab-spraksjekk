@@ -10,6 +10,7 @@ import checkPersonalData from './checkPersonalData';
 import checkLix from './checkLix';
 import checkWordCount from './checkWordCount';
 import checkWordFrequency from './checkWordFrequency';
+import checkPersonvernbrudd from './checkPersonvernbrudd';
 
 interface ToolsResult {
     lix: ReturnType<typeof checkLix>;
@@ -27,6 +28,7 @@ export interface TextCheckerResult {
     avloeserord: ReturnType<typeof checkAvloeserord>;
     comma: ReturnType<typeof checkComma>;
     personalData: ReturnType<typeof checkPersonalData>;
+    personvernbrudd: ReturnType<typeof checkPersonvernbrudd>;
     tools: ToolsResult;
 }
 
@@ -41,6 +43,7 @@ const checkText = (value: string): TextCheckerResult => {
         avloeserord: checkAvloeserord(value),
         comma: checkComma(value),
         personalData: checkPersonalData(value),
+        personvernbrudd: checkPersonvernbrudd(value),
         tools: {
             lix: checkLix(value),
             wordCount: checkWordCount(value),
