@@ -21,7 +21,7 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "@navikt/ds-css": "^7.x",gst
+    "@navikt/ds-css": "^7.x",
     "@navikt/ds-react": "^7.x",
     "react": "17 - 18"
   },
