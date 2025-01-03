@@ -1,5 +1,5 @@
 import { Accordion, BodyShort, Heading, Link } from '@navikt/ds-react';
-import { ReactComponent as ExternalLinkIcon } from '../ExternalLink.svg';
+import ExternalLinkIcon from '../ExternalLink.svg?react';
 import checkLix from '../../analysis/checkLix';
 
 interface Props {

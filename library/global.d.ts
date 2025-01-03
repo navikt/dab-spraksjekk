@@ -1,3 +1,1 @@
-declare module '*.svg' {
-    export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-}
+/// <reference types="vite-plugin-svgr/client" />
