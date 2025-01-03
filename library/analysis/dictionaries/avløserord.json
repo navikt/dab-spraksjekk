@@ -1,9 +1,5 @@
  [
     {
-      "importord": "@",
-      "avloeserord": "krøllalfa"
-    },
-    {
       "importord": "abort",
       "avloeserord": "(IKT) programbrot/programbrudd, programavbrot/programavbrudd"
     },
@@ -584,14 +580,6 @@
       "avloeserord": "nedvekst"
     },
     {
-      "importord": "design",
-      "avloeserord": "\r\n(med vekt på estetikk og funksjon, som i moderne design:) formgjeving/formgivning, (estetisk/kunstnarleg/kunstnerisk) utforming; (i tekniske fag også:) konstruksjon\r\n"
-    },
-    {
-      "importord": "designer",
-      "avloeserord": "formgjevar/formgiver"
-    },
-    {
       "importord": "desktop publishing (DTP)",
       "avloeserord": "skrivebordssetjing/skrivebordssetting"
     },
@@ -658,10 +646,6 @@
     {
       "importord": "dummy",
       "avloeserord": "modell, prototyp, falsk, uekte, skinn-"
-    },
-    {
-      "importord": "e(-)",
-      "avloeserord": "e- (= elektronisk) (IKT)"
     },
     {
       "importord": "earcon",
@@ -2006,10 +1990,6 @@
     {
       "importord": "thumbnail",
       "avloeserord": "miniatyrbilete/miniatyrbilde, knøttbilete/knøttbilde (IKT)"
-    },
-    {
-      "importord": "time",
-      "avloeserord": "berekne/beregne, planleggje/planlegge, taime"
     },
     {
       "importord": "time manager",

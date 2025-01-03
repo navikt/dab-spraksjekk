@@ -10,6 +10,7 @@ import AvloeserordDictionary from './components/AvloeserordDictionary';
 import CommaCheck from './components/CommaCheck';
 import PersonalData from './components/PersonalData';
 import Tools from './components/Tools';
+import Personvernbrudd from './components/Personvernbrudd';
 
 interface Options {
     longParagraphs?: boolean;
@@ -22,6 +23,7 @@ interface Options {
     commaCheck?: boolean;
     personalData?: boolean;
     tools?: boolean;
+    personvernbrudd?: boolean;
 }
 
 interface Props {
@@ -42,6 +44,7 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
         commaCheck = true,
         personalData = true,
         tools = true,
+        personvernbrudd = true,
     } = options;
 
     if (!value || !open) {
@@ -59,6 +62,7 @@ export const Spraksjekk = ({ value, open, options = {} }: Props) => {
             {avloeserordDictionary && <AvloeserordDictionary value={value} />}
             {commaCheck && <CommaCheck value={value} />}
             {personalData && <PersonalData value={value} />}
+            {personvernbrudd && <Personvernbrudd userInput={value} />}
             {tools && <Tools value={value} />}
         </Accordion>
     );
