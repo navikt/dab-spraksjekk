@@ -17,6 +17,7 @@ module.exports = defineConfig({
                 globals: {
                     react: 'React',
                     '@navikt/ds-react': 'ds-react',
+                    'react/jsx-runtime': 'ReactJsxRuntime',
                 },
             },
         },
