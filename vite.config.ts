@@ -12,7 +12,7 @@ module.exports = defineConfig({
             fileName: (format) => `spraksjekk.${format}.js`,
         },
         rollupOptions: {
-            external: ['react', '@navikt/ds-react'],
+            external: ['react', '@navikt/ds-react', 'react/jsx-runtime'],
             output: {
                 globals: {
                     react: 'React',
