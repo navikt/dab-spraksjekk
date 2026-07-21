@@ -5,6 +5,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "./dist/spraksjekk.umd.js",
   "module": "./dist/spraksjekk.es.js",
   "types": "./dist/index.d.ts",
