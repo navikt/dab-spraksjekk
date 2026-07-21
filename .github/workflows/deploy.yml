@@ -23,7 +23,7 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         shell: bash
-        run: pnpm install --frozen-lockfile --ignore-scripts
+        run: pnpm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: pnpm run test
