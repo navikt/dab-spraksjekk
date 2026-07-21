@@ -6,8 +6,6 @@ minimumReleaseAgeExclude:
   - "@navikt/*"
   - vite
 
-autoInstallPeers: false
-
 #registries:
 #  default: 'https://registry.npmjs.org/'
 #  '@navikt': 'https://npm.pkg.github.com'
