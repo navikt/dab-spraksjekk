@@ -25,7 +25,6 @@
     "@navikt/ds-css": "<8.12",
     "@navikt/ds-react": "<8.12",
     "@navikt/aksel-icons": "<8.12",
-    "@navikt/ds-tokens": "<8.12",
     "react": "19"
   },
   "devDependencies": {
