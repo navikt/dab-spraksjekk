@@ -5,3 +5,7 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "@navikt/*"
   - vite
+
+registries:
+  default: "https://registry.npmjs.org"
+  '@navikt/*': "https://npm.pkg.github.com"
