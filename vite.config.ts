@@ -22,5 +22,5 @@ export default defineConfig({
             },
         },
     },
-    plugins: [react(), svgr(), dts()],
+    plugins: [react(), svgr(), dts({ entryRoot: 'library' })],
 });
