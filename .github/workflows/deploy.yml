@@ -25,7 +25,7 @@ jobs:
         shell: bash
         run: pnpm install --frozen-lockfile --ignore-scripts
         env:
-          NODE_AUTH_TOKEN: ${{ inputs.READER_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: pnpm run test
       - run: pnpm run build
       - run: pnpm publish
