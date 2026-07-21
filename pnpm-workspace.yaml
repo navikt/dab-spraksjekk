@@ -5,3 +5,6 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "@navikt/*"
   - vite
+
+registries:
+  '@navikt': 'https://npm.pkg.github.com'
