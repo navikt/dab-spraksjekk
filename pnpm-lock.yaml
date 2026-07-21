@@ -18,8 +18,8 @@ importers:
         specifier: <8.14
         version: 8.11.1(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.7))(react@19.2.7)
       '@navikt/ds-tokens':
-        specifier: <8.14
-        version: 8.11.1
+        specifier: 8.x
+        version: 8.15.0
       react:
         specifier: '19'
         version: 19.2.7
@@ -197,9 +197,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  '@navikt/ds-tokens@8.11.1':
-    resolution: {integrity: sha512-jsPer8drVa+TxqdfHHanZVrsUNjowx+3ZcXQ7/+Nb3q81FTnrXmpvV2VeN7TTzSToWdX5/6oGH9LzrSyiN5UGw==}
 
   '@navikt/ds-tokens@8.15.0':
     resolution: {integrity: sha512-i76uLUIONOWc/G7kzPHQwNCR65bKBVulYbua6tyVmtlAhJyEPjC2vNyeeOq1bE4QcccPNQz9rBKydmXOVvJYtw==}
@@ -1138,8 +1135,6 @@ snapshots:
       react-dom: 19.2.4(react@19.2.7)
     optionalDependencies:
       '@types/react': 19.2.14
-
-  '@navikt/ds-tokens@8.11.1': {}
 
   '@navikt/ds-tokens@8.15.0': {}
 
