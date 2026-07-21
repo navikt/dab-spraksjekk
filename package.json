@@ -22,10 +22,10 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "@navikt/ds-css": "<8.14",
-    "@navikt/ds-react": "<8.14",
-    "@navikt/aksel-icons": "<8.14",
-    "@navikt/ds-tokens": "8.x",
+    "@navikt/ds-css": "<8.6",
+    "@navikt/ds-react": "<8.6",
+    "@navikt/aksel-icons": "<8.6",
+    "@navikt/ds-tokens": "8.6",
     "react": "19"
   },
   "devDependencies": {
