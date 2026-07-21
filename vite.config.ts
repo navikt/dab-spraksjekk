@@ -1,17 +1,17 @@
 import * as path from 'path';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite'
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
 
-module.exports = defineConfig({
+export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, 'library/index.ts'),
             name: 'Spraksjekk',
             fileName: (format) => `spraksjekk.${format}.js`,
         },
-        rollupOptions: {
+        rolldownOptions: {
             external: ['react', '@navikt/ds-react', 'react/jsx-runtime'],
             output: {
                 globals: {

@@ -13,18 +13,21 @@ jobs:
       packages: 'write'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v5
         with:
-          node-version: 22
-          cache: 'npm'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@navikt'
-      - run: npm ci
+          node-version: 25
+          registry-url: "https://npm.pkg.github.com"
+          cache: 'pnpm'
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile --ignore-scripts
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-      - run: npm run test
-      - run: npm run build
-      - run: npm publish
+          NODE_AUTH_TOKEN: ${{ inputs.READER_TOKEN }}
+      - run: pnpm run test
+      - run: pnpm run build
+      - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -10,6 +10,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/spraksjekk.es.js",
       "require": "./dist/spraksjekk.umd.js"
     }
@@ -26,15 +27,15 @@
     "react": "17 - 19"
   },
   "devDependencies": {
-    "react-dom": "17 - 19",
     "@types/node": "^22.10.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2",
-    "vite": "8.0.5",
     "@vitejs/plugin-react-swc": "^4.3.0",
-    "vite-plugin-dts": "^4.5.4",
+    "react-dom": "17 - 19",
+    "typescript": "^6.0.3",
+    "unplugin-dts": "^1.0.3",
+    "vite": "^8.1.5",
     "vite-plugin-svgr": "^4.5.0"
   }
 }
